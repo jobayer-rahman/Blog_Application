@@ -8,7 +8,7 @@ class Author(models.Model):
     phoneNumber = models.CharField(max_length=13)
     email = models.EmailField()
     password = models.CharField(max_length=10)
-    authorIntro = models.CharField(default=250)
+    authorIntro = models.CharField(max_length=250)
     image = models.ImageField()
     registered_at = models.DateField()
     updated_at = models.DateField()
