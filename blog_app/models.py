@@ -10,9 +10,9 @@ class Author(models.Model):
     password = models.CharField(max_length=10)
     authorIntro = models.CharField(max_length=250)
     image = models.ImageField()
-    registered_at = models.DateField()
-    updated_at = models.DateField()
-    last_login = models.DateField()
+    registered_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+    last_login = models.DateField(auto_now=True)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class PostComment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()
-    published_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
